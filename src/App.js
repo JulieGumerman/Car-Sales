@@ -7,13 +7,14 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import { addItem } from './actions';
 
 
 // import { carReducer } from "./reducer/index";
 
 // const store = createStore(carReducer);
 
-const App = ({car, store, additionalPrice}) => {
+const App = ({car, store, additionalPrice, addItem}) => {
 
 
   const removeFeature = item => {
@@ -23,7 +24,8 @@ const App = ({car, store, additionalPrice}) => {
   };
 
   const buyItem = item => {
-    // dipsatch an action here to add an item
+    console.log(item);
+    addItem(item)
   };
 
   return (
@@ -34,7 +36,7 @@ const App = ({car, store, additionalPrice}) => {
         <AddedFeatures car={car} />
       </div>
       <div className="box">
-        <AdditionalFeatures store={store} />
+        <AdditionalFeatures buyItem={buyItem} store={store} />
         <Total car={car} additionalPrice={additionalPrice} />
       </div>
     </div>
@@ -50,5 +52,6 @@ const mapStateToProps = state => {
     additionalPrice: state.additionalPrice
   }
 }
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, {addItem})(App);
 
+//add removeItem to squiggly brackets

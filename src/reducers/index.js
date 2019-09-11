@@ -24,7 +24,18 @@ export const carReducer = (state=initialState, action ) => {
 
         switch(action.type) {
             case "ADD_ITEM":
-                return state;
+                if (!state.car.features.includes(action.payload)) {
+                    return {
+                        ...state, 
+                        additionalPrice: state.additionalPrice += action.payload.price, 
+                        car: {
+                            ...state.car,
+                            features: [...state.car.features, action.payload]
+                        }
+                    }
+                } else {
+                    return state;
+                }
             default: 
             return state;
         }
