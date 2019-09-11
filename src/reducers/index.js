@@ -36,6 +36,10 @@ export const carReducer = (state=initialState, action ) => {
                 } else {
                     return state;
                 }
+                case "REMOVE ITEM":
+                    return {
+                        
+                    }
             default: 
             return state;
         }
