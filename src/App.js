@@ -14,7 +14,7 @@ import { addItem, removeItem } from './actions';
 
 // const store = createStore(carReducer);
 
-const App = ({car, store, additionalPrice, addItem}) => {
+const App = ({car, store, additionalPrice, addItem, removeItem}) => {
 
 
   const removeFeature = item => {
@@ -54,6 +54,6 @@ const mapStateToProps = state => {
     additionalPrice: state.additionalPrice
   }
 }
-export default connect(mapStateToProps, {addItem})(App);
+export default connect(mapStateToProps, {addItem, removeItem})(App);
 
 //add removeItem to squiggly brackets

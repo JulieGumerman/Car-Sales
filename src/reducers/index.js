@@ -36,9 +36,10 @@ export const carReducer = (state=initialState, action ) => {
                 } else {
                     return state;
                 }
-                case "REMOVE ITEM":
+                case "REMOVE_ITEM":
                     return {
-                        
+                        ...state, 
+                        additionalPrice: state.additionalPrice -= action.payload.price
                     }
             default: 
             return state;
