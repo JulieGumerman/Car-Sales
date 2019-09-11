@@ -1,3 +1,5 @@
+
+
 const initialState = {
     additionalPrice: 0,
     car: {
@@ -18,9 +20,14 @@ const initialState = {
 
 
  
-export const carReducer = (state=initialState ) => {
+export const carReducer = (state=initialState, action ) => {
 
-    default:
-        return state;
+        switch(action.type) {
+            case "ADD_ITEM":
+                return state;
+            default: 
+            return state;
+        }
+
 
  }

@@ -8,7 +8,7 @@ import { createStore } from "redux";
 import 'bulma/css/bulma.css';
 import './styles.scss';
 
-import { carReducer } from "./reducer/index";
+import { carReducer } from "./reducers";
 
 
 const store = createStore(carReducer);
